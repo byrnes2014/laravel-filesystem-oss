@@ -2,26 +2,50 @@
 
 <p align="center"> .</p>
 
-
 ## Installing
 
 ```shell
 $ composer require byrnes2014/laravel-filesystem-oss -vvv
 ```
 
-## Usage
+Then in your `config/app.php` add this line to providers array:
 
-TODO
+```php
+Jacobcyl\AliOSS\AliOssServiceProvider::class,
+```
 
 ## Contributing
 
-You can contribute in one of three ways:
+```php
 
-1. File bug reports using the [issue tracker](https://github.com/byrnes2014/laravel-filesystem-oss/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/byrnes2014/laravel-filesystem-oss/issues).
-3. Contribute new features or update the wiki.
+'disks'=>[
+    ...
+    'oss' => [
+            'driver'        => 'oss',
+            'access_id'     => '<Your Aliyun OSS AccessKeyId>',
+            'access_key'    => '<Your Aliyun OSS AccessKeySecret>',
+            'bucket'        => '<OSS bucket name>',
+            'endpoint'      => '<the endpoint of OSS, E.g: oss-cn-hangzhou.aliyuncs.com | custom domain, E.g:img.abc.com>', 
+            'isCName'       => <true|false> 
+            'debug'         => <true|false>
+    ],
+    ...
+]
+```
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+## Usage
+
+```php
+use Illuminate\Support\Facades\Storage;
+```  
+
+> Then You can use all APIs of laravel Storage
+
+```php
+Storage::disk('oss'); // if default filesystems driver is oss, you can skip this step
+
+Storage::put('path/to/file/file.jpg', $contents)
+```
 
 ## License
 
