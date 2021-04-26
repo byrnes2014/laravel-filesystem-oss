@@ -1,0 +1,28 @@
+{
+    "name": "byrnes2014/laravel-filesystem-oss",
+    "description": "A Oss storage filesystem for Laravel.",
+    "license": "MIT",
+    "require": {
+        "php": "^7.2.5 || ^8.0",
+        "league/flysystem": "^1.0",
+        "byrnes2014/flysystem-oss": "^0.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Byrnes2014\\LaravelFilesystem\\Oss\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "byrnes2014",
+            "email": "76119622@qq.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Byrnes2014\\LaravelFilesystem\\Oss\\OssStorageServiceProvider"
+            ]
+        }
+    }
+}
